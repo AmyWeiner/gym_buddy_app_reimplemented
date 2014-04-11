@@ -5,6 +5,7 @@ ruby '2.1.1'
 gem 'rails', '4.1.0'
 gem 'devise'
 gem 'pg'
+gem 'foundation-rails'
 gem 'rails_12factor', :group => :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
