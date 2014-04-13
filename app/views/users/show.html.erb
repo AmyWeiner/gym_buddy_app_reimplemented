@@ -6,14 +6,22 @@
 
 
 
-<%= @user.email %><br />
+
 <div class="row">
   <div class="panel small-4 columns">
+    <h3>Email:</h3>
+    <h4><%= @user.email %></h4>
+    <h3>Gym:</h3>
     <h3>Availability:</h3>
     <% @user.availabilities.each do |availability| %>
       <div>
-        <h4><%= availability.day %>, <%= availability.time.strftime("%I:%M %p") %></h4>
+        <h4><%= availability.day %>, <%= availability.time.strftime("%I:%M %p") %><%= button_to "Remove", [availability.user, availability], :method => :delete %></h4>
       </div>
     <% end %>
+    <%= button_to "Add Availability", new_user_availability_path(current_user), :method => :get %>
   </div>
 </div>
+
+
+    
+  

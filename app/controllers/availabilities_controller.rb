@@ -10,4 +10,11 @@ class AvailabilitiesController < ApplicationController
     @availability = @user.availabilities.create(new_availability)
     redirect_to current_user
   end
+
+  def destroy
+    @user = current_user
+    @availability = @user.availabilities.find(params[:id])
+    @availability.destroy
+    redirect_to @user
+  end
 end
