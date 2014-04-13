@@ -10,5 +10,20 @@
     <%= text_field_tag(:state) %></br></br>
     <%= submit_tag("Search") %></br></br>
     <% end %>
+
+    <%= label_tag(:results, "Results:") %></br>
+    <% unless @gyms_array_hashes.nil?%>
+
+    <%= form_for :gym, url: "/gyms", method: "post" do |f| %>
+      <%= f.select 'gym_id', options_for_select(@gyms_array_hashes.collect{ |gym, index| [gym[:name], gym[:yelp_id]] }) %></br></br>
+      <%= f.submit %>
+    <% end %>
+    <% end %>
+    <% unless @user.nil? %>
+      <%= form_for(@user) do |f| %>
+      <%= f.submit "Add Fitness Center", gym_path, class: "btn btn-large btn-primary" %>
+    <% end %>
+    <% end %>
   </div>
 </div>
+
