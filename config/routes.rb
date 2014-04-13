@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact', as: 'contact'
   
   devise_for :admins
-  devise_for :users
+  devise_for :users, :path => 'accounts'
   resources :users
 end
