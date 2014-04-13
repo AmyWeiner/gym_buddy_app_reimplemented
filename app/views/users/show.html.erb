@@ -12,7 +12,7 @@
     <h3>Availability:</h3>
     <% @user.availabilities.each do |availability| %>
       <div>
-        <h4><%= availability.day %></h4>
+        <h4><%= availability.day %>, <%= availability.time.strftime("%I:%M %p") %></h4>
       </div>
     <% end %>
   </div>
