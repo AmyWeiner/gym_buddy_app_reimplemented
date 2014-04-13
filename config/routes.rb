@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :availabilities
   end
-
+  resources :gyms
   devise_for :admins
   devise_for :users, :path => 'accounts'
 end

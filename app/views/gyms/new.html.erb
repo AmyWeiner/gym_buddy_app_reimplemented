@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="panel small-4 small-centered columns">
+    <% provide(:title, 'Find Fitness Center') %>
+    <h1>Find Fitness Center</h1>
+
+    <%= form_tag("/add/gyms", method: "get") do %>
+    <%= label_tag(:city, "Enter City:") %></br>
+    <%= text_field_tag(:city) %></br>
+    <%= label_tag(:state, "Enter State:") %></br>
+    <%= text_field_tag(:state) %></br></br>
+    <%= submit_tag("Search") %></br></br>
+    <% end %>
+  </div>
+</div>
