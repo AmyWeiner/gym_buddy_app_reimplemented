@@ -6,4 +6,14 @@
 
 
 
-<%= @user.email %>
+<%= @user.email %><br />
+<div class="row">
+  <div class="panel small-4 columns">
+    <h3>Availability:</h3>
+    <% @user.availabilities.each do |availability| %>
+      <div>
+        <h4><%= availability.day %></h4>
+      </div>
+    <% end %>
+  </div>
+</div>
