@@ -11,8 +11,10 @@
     <ul class="right">
       <li class="active"><a href="/accounts/sign_up">Sign Up</a></li>
       <li><a href="/accounts/sign_in">Sign In</a></li>
-      <li><%= link_to "My Profile", user_path(current_user), :method => :get %></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "My Profile", user_path(current_user), :method => :get %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% end %>
     </ul>
 
     <!-- Left Nav Section -->
