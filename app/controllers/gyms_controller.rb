@@ -4,7 +4,6 @@ class GymsController < ApplicationController
   end
 
   def search
-    @gym = Gym.new
     city = params[:city]
     state = params[:state]
     unless params[:city].nil? || params[:state].nil?
@@ -18,7 +17,7 @@ class GymsController < ApplicationController
     gym_params = Gym.with_yelp_id(new_gym[:gym_id])
     @gym=Gym.new(gym_params)
     if @gym.save
-      redirect_to current_user
+      redirect_to '/gyms/new'
     end
   end
 

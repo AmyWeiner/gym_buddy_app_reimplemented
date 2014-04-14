@@ -6,25 +6,8 @@
 
 <div class="row">
   <div class="panel small-6 small-centered columns">
-    <h4>Select a fitness center from the system</h4>
-    
-     <%= form_for @gym, url: "/user/joingym", method: "post" do |f| %>
-            <%= f.label :name %></br>
-             <% gyms = Gym.all.map {|gym| [gym.name, gym.id] }%>
-             <%= f.select(:name, gyms)  %> </br></br>
-             <%= f.submit "Add Fitness Center" %>
-        <% end %>
-      
-    <h4>Or, search for your gym</h4>
-    <%= form_tag("/search/gyms", method: "get") do %>
-    <%= text_field_tag(:city, "Enter City") %>
-    <%= text_field_tag(:state, "Enter State") %>
-    <%= submit_tag("Search") %>
-    <% end %>
-
     <%= label_tag(:results, "Results:") %></br>
     <% unless @gyms_array_hashes.nil?%>
-
     <%= form_for :gym, url: "/gyms", method: "post" do |f| %>
       <%= f.select 'gym_id', options_for_select(@gyms_array_hashes.collect{ |gym, index| [gym[:name], gym[:yelp_id]] }) %></br></br>
       <%= f.submit %>
