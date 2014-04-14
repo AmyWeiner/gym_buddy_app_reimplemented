@@ -4,14 +4,15 @@
   </div>
 </div>
 
-
-
-
 <div class="row">
-  <div class="panel small-4 columns">
+  <div class="panel small-6 columns">
     <h3>Email:</h3>
     <h4><%= @user.email %></h4>
     <h3>Gym:</h3>
+     <% unless @user.gym.nil? %>  
+      <h4>Name: <%= @user.gym.name %></h4>
+      <h4>Location: <%= @user.gym.street %> <%= @user.gym.city %> <%= @user.gym.state %> <%= @user.gym.zip_code %></h4>
+    <% end %>
     <h3>Availability:</h3>
     <% @user.availabilities.each do |availability| %>
       <div>

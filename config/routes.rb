@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :availabilities
   end
   resources :gyms
-  get '/add/gyms', to: 'gyms#add', as: 'add'
+  get '/search/gyms', to: 'gyms#search', as: 'search'
+  post 'user/joingym', to: 'gyms#join_gym', as: 'joingym'
   devise_for :admins
   devise_for :users, :path => 'accounts'
 end
