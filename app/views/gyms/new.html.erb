@@ -5,21 +5,21 @@
 </div>
 
 <div class="row">
-  <div class="panel small-6 small-centered columns">
+  <div class="panel callout radius small-6 small-centered columns">
     <h4>Select a fitness center from the system</h4>
     
      <%= form_for @gym, url: "/user/joingym", method: "post" do |f| %>
             <%= f.label :name %></br>
              <% gyms = Gym.all.map {|gym| [gym.name, gym.id] }%>
              <%= f.select(:name, gyms)  %> </br></br>
-             <%= f.submit "Add Fitness Center" %>
+             <%= f.submit "Add Fitness Center", class: "button" %>
         <% end %>
       
     <h4>Or, search for your gym</h4>
     <%= form_tag("/search/gyms", method: "get") do %>
     <%= text_field_tag(:city, "Enter City") %>
     <%= text_field_tag(:state, "Enter State") %>
-    <%= submit_tag("Search") %>
+    <%= submit_tag("Search", class: "button") %>
     <% end %>
   </div>
 </div>

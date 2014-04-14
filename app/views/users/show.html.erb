@@ -1,26 +1,26 @@
 <div class="row">
-  <div class="small-6 columns small-centered profile">
+  <div class="small-6 columns small-centered profile-header">
     <h1>Profile for <%= @user.name %></h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="panel small-6 columns">
-    <h3>Email:</h3>
-    <h4><%= @user.email %></h4>
-    <h3>Gym:</h3>
+  <div class="panel callout radius small-6 columns profile-details">
+      <h3>Personal Details </h3>
+    <h5>Email: <%= @user.email %></h5>
+    <h3>Gym Details </h3>
      <% unless @user.gym.nil? %>  
-      <h4>Name: <%= @user.gym.name %></h4>
-      <h4>Location: <%= @user.gym.street %> <%= @user.gym.city %> <%= @user.gym.state %> <%= @user.gym.zip_code %></h4>
+      <h5>Name: <%= @user.gym.name %></h5>
+      <h5>Location: <%= @user.gym.street %> <%= @user.gym.city %> <%= @user.gym.state %> <%= @user.gym.zip_code %></h5>
     <% end %>
-    <h3>Availability:</h3>
+    <h3>Availability Details</h3>
     <% @user.availabilities.each do |availability| %>
       <div>
-        <h4><%= availability.day %>, <%= availability.time.strftime("%I:%M %p") %><%= button_to "Remove", [availability.user, availability], :method => :delete %></h4>
+        <h5>Day: <%= availability.day %>, Time: <%= availability.time.strftime("%I:%M %p") %><%= button_to "Remove", [availability.user, availability], :method => :delete %></h5>
       </div>
     <% end %>
-    <%= button_to "Add Availability", new_user_availability_path(current_user), :method => :get %>
-     <%= button_to "Add Gym", new_gym_path, :method => :get %>
+    <%= button_to "Add Availability", new_user_availability_path(current_user), :method => :get, class: "button" %>
+     <%= button_to "Add Gym", new_gym_path, :method => :get, class: "button" %>
   </div>
 </div>
 
