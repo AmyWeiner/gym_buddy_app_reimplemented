@@ -20,7 +20,11 @@
       </div>
     <% end %>
     <%= button_to "Add Availability", new_user_availability_path(current_user), :method => :get, class: "button" %>
-     <%= button_to "Add Gym", new_gym_path, :method => :get, class: "button" %>
+    <% if  current_user.gym.nil? %>
+      <%= button_to "Add Gym", new_gym_path, :method => :get, class: "button" %>
+    <% else %>
+      <%= button_to "Update Gym", new_gym_path, :method => :get, class: "button" %>
+    <% end %>
   </div>
 </div>
 
