@@ -15,7 +15,7 @@ class GymsController < ApplicationController
   def create
     new_gym = params.require(:gym).permit(:gym_id)
     gym_params = Gym.with_yelp_id(new_gym[:gym_id])
-    @gym=Gym.new(gym_params)
+    @gym=Gym.find_or_create_by(gym_params)
     if @gym.save
       redirect_to '/gyms/new'
     end
