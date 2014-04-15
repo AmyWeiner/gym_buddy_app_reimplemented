@@ -1,13 +1,13 @@
 class AvailabilitiesController < ApplicationController
   def new
-    @user = current_user
-    @availability = @user.availabilities.build
+    @availability = Availability.new
   end
 
   def create
     new_availability = params.require(:availability).permit(:day, :time)
-    @user = current_user
-    @availability = @user.availabilities.create(new_availability)
+    #@availability = Availability.create(new_availability)
+    #@availability = Availability.find_or_create_by(new_availability)
+    current_user.availabilities.create(new_availability)
     redirect_to current_user
   end
 
