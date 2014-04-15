@@ -7,10 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @my_availabilities = current_user.availabilities
-    id = current_user.id
-    gym_id = current_user.gym_id
-    @users = User.where.not(id: id)
-    @users = @users.where(gym_id: gym_id)
+    @availabilities = current_user.availabilities
+    @gym_users = User.get_same_gym_users(current_user.gym_id, current_user.id)
   end
 end
