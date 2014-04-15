@@ -28,6 +28,11 @@
   </div>
   <div class="panel callout radius small-5 columns profile-buddies">
     <h3>Buddies</h3>
+    <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+    <% end %>
   </div>
 </div>
 
