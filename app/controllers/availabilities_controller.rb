@@ -18,3 +18,5 @@ class AvailabilitiesController < ApplicationController
     redirect_to @user
   end
 end
+
+
