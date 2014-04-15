@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413204935) do
+ActiveRecord::Schema.define(version: 20140415001105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 20140413204935) do
     t.string   "day"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "hour"
     t.time     "time"
   end
 
@@ -53,6 +51,16 @@ ActiveRecord::Schema.define(version: 20140413204935) do
     t.datetime "updated_at"
     t.string   "yelp_id"
   end
+
+  create_table "schedules", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "availability_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedules", ["availability_id"], name: "index_schedules_on_availability_id", using: :btree
+  add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
