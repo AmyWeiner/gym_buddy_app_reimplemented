@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="panel callout radius small-6 small-centered columns">
+    <h1>My Availabilities</h1>
+    <% @availabilities.each do |availability| %>
+      Day: <%= availability.day%>, Time: <%= availability.time %> <br />
+    <% end %><br />
+
+    <h1>Search Results</h1>
+    <% @gym_users.each do |gym_user| %>
+  <%= gym_user.name%>, <%= gym_user.gym.name %><br />
+  <% gym_user.availabilities.each do |availability| %>
+    Day: <%= availability.day%>, Time: <%= availability.time %> <br />
+  <% end %><br />
+<% end %>
+  </div>
+</div>
+
+<% if false %>
+<%= @available_gym_users.each do |available_gym_user| %>
+    <% available_gym_user.name %><br />
+<% end %>
+<% end %>

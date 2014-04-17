@@ -1,4 +1,16 @@
 Rails.application.configure do
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :sendmail
+
+  #config.action_mailer.smtp_settings = {
+    #address: “smtp.gmail.com”,
+    #port: 587,
+    #domain: ENV["GMAIL_DOMAIN"],
+    #authentication: “plain”,
+    #enable_starttls_auto: true,
+    #user_name: ENV["GMAIL_USERNAME"],
+    #password: ENV["GMAIL_PASSWORD"]
+  #}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -14,7 +26,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -34,7 +46,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  
-  # Defines default url options for the Devise mailer
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="small-6 columns small-centered profile-header">
+    <h1>Profile for <%= @user.name %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="panel callout radius small-5 columns profile-details">
+    <h3>Personal Details </h3>
+    <h5>Email: <%= @user.email %></h5>
+    <h3>Gym Details </h3>
+     <% unless @user.gym.nil? %>  
+      <h5>Name: <%= @user.gym.name %></h5>
+      <h5>Location: <%= @user.gym.street %> <%= @user.gym.city %> <%= @user.gym.state %> <%= @user.gym.zip_code %></h5>
+    <% end %>
+    <h3>Availability Details</h3>
+    <% @user.availabilities.each do |availability| %>
+      <div>
+        <h5>Day: <%= availability.day %>, Time: <%= availability.time.strftime("%I:%M %p") %><%= button_to "Remove", availability, :method => :delete %></h5>
+      </div>
+    <% end %>
+    <%= button_to "Add Availability", new_availability_path, :method => :get, class: "button" %>
+    <% if  current_user.gym.nil? %>
+      <%= button_to "Add Gym", new_gym_path, :method => :get, class: "button" %>
+    <% else %>
+      <%= button_to "Update Gym", new_gym_path, :method => :get, class: "button" %>
+    <% end %>
+  </div>
+  <div class="panel callout radius small-5 columns profile-buddies">
+    <h3>Buddies</h3>
+    <%= form_tag("/search", method: "get") do %>
+    <%= submit_tag("Find Buddies") %>
+    <% end %>
+  </div>
+</div>
+
+
+    
+  
