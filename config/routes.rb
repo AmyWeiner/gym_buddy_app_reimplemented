@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   # Devise routes
   devise_for :admins
   devise_for :users, :path => 'accounts'
+
+  # Contacts routes
+  get '/contacts', to: 'contacts#new', as: 'contacts'
 end
