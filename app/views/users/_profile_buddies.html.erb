@@ -1,0 +1,14 @@
+<div class="panel callout radius small-5 columns profile-buddies">
+    <h3>Buddies</h3>
+    <% current_user.buddyships.each do |buddyship| %>
+      <div>
+        <%= buddyship.buddy.name %> <%= button_to "Remove Buddy", buddyship, :method => :delete  %>
+        <% buddyship.buddy.availabilities.each do |availability| %>
+          <h5>Day: <%= availability.day %>, Time: <%= availability.time.strftime("%I:%M %p") %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form_tag("/search", method: "get") do %>
+    <%= submit_tag("Find Buddies", class: "button") %>
+    <% end %>
+  </div>
