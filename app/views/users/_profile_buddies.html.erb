@@ -11,4 +11,10 @@
     <%= form_tag("/search", method: "get") do %>
     <%= submit_tag("Find Buddies", class: "button") %>
     <% end %>
+    <h3>Buddied by Users</h3>
+    <% current_user.inverse_buddies.each do |inverse_buddy| %>
+      <div>
+        <%= inverse_buddy.name %> 
+      </div>
+    <% end %>
   </div>

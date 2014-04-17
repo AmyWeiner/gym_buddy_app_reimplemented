@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :availabilities, through: :schedules
   has_many :buddyships
   has_many :buddies, through: :buddyships
+  has_many :inverse_buddyships, :class_name => "Buddyship", :foreign_key => "buddy_id"
+  has_many :inverse_buddies, through: :inverse_buddyships, source: :user
   belongs_to :gym
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
