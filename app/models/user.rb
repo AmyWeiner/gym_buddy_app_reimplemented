@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :schedules
   has_many :availabilities, through: :schedules
+  has_many :buddyships
+  has_many :buddies, through: :buddyships
   belongs_to :gym
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

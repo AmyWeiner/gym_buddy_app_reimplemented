@@ -5,9 +5,9 @@
       Day: <%= availability.day%>, Time: <%= availability.time %> <br />
     <% end %><br />
 
-    <h1>Search Results</h1>
+    <h1>Potential Buddies</h1>
     <% @gym_users.each do |gym_user| %>
-  <%= gym_user.name%>, <%= gym_user.gym.name %><br />
+  <%= gym_user.name%>, <%= gym_user.gym.name %><%= button_to "Add Buddy", buddyships_path(:buddy_id => gym_user), :method => :post %><br />
   <% gym_user.availabilities.each do |availability| %>
     Day: <%= availability.day%>, Time: <%= availability.time %> <br />
   <% end %><br />
