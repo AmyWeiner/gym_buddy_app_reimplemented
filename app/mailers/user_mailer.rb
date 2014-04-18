@@ -1,10 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "http://gym-buddy.herokuapp.com/"
 
   def buddy_added_email(buddy, user)
     @buddy = buddy
     @user = user
-    @url = 'http://example.com/login'
-    mail(to: @buddy.email, subject: 'Welcome to My Awesome Site')
+    @url = 'http://gym-buddy.herokuapp.com/'
+    mail(to: @buddy.email, subject: 'You Have Been Added as a Buddy')
   end
 end

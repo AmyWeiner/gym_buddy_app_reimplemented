@@ -3,6 +3,12 @@
     <% current_user.buddyships.each do |buddyship| %>
       <div>
         <%= buddyship.buddy.name %> <%= button_to "Remove Buddy", buddyship, :method => :delete  %>
+        <% if  buddy?(buddyship.buddy)%>
+          <%= buddyship.buddy.name %> is your buddy
+        <% end %>
+        <% if  buddied_by?(buddyship.buddy)%>
+          <%= buddyship.buddy.name %> has buddied you
+        <% end %>
         <% buddyship.buddy.availabilities.each do |availability| %>
           <h5>Day: <%= availability.day %>, Time: <%= availability.time.strftime("%I:%M %p") %>
         <% end %>
