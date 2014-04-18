@@ -4,7 +4,7 @@ class BuddyshipsController < ApplicationController
     @buddyship = current_user.buddyships.build(:buddy_id => params[:buddy_id])
     if @buddyship.save
       flash[:notice] = "Buddy successfully added"
-      UserMailer.buddy_added_email(@buddy).deliver
+      UserMailer.buddy_added_email(@buddy, current_user).deliver
       redirect_to current_user
     else
       flash[:error] = "Unable to add buddy"
