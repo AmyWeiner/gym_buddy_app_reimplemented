@@ -2,12 +2,10 @@
     <h3>Buddies</h3>
     <% current_user.buddyships.each do |buddyship| %>
       <div>
-        <%= buddyship.buddy.name %> <%= button_to "Remove Buddy", buddyship, :method => :delete  %>
-        <% if  buddy?(buddyship.buddy)%>
-          <%= buddyship.buddy.name %> is your buddy
-        <% end %>
-        <% if  buddied_by?(buddyship.buddy)%>
-          <%= buddyship.buddy.name %> has buddied you
+        <%= buddyship.buddy.name %> 
+        <% if  buddy?(buddyship.buddy) && buddied_by?(buddyship.buddy) %>
+          <%= button_to "Contact Buddy", contact_user_path(buddyship.buddy), {:method => :get, :data => {:buddy_id => buddyship.buddy.id} }%> 
+          <%= button_to "Remove Buddy", buddyship, :method => :delete  %>
         <% end %>
         <% buddyship.buddy.availabilities.each do |availability| %>
           <h5>Day: <%= availability.day %>, Time: <%= availability.time.strftime("%I:%M %p") %>

@@ -9,6 +9,18 @@ Bundler.require(*Rails.groups)
 module GymBuddyApp
   class Application < Rails::Application
     config.filter_parameters += [:password, :password_confirmation]
+    #config.action_mailer.smtp_settings = {
+    #address: “smtp.gmail.com”,
+    #port: 587,
+    #domain: ENV["GMAIL_DOMAIN"],
+    #authentication: “plain”,
+    #enable_starttls_auto: true,
+    #user_name: ENV["GMAIL_USERNAME"],
+    #password: ENV["GMAIL_PASSWORD"]
+  #}
+    config.action_mailer.default_url_options = {
+        :host => "http://gym-buddy.herokuapp.com/"
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

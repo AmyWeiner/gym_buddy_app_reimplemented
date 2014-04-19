@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # Users routes
   resources :users 
   get '/search', to: 'users#search', as: 'search_users'
+  get '/contact/buddy/:id', to: 'users#contact', as: 'contact_user'
 
   # Availabilities routes
   resources :availabilities

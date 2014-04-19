@@ -5,6 +5,6 @@ class UserMailer < ActionMailer::Base
     @buddy = buddy
     @user = user
     @url = 'http://gym-buddy.herokuapp.com/'
-    mail(to: @buddy.email, subject: 'You Have Been Added as a Buddy')
+    mail(to: @buddy.email, subject: 'You Have Been Buddied')
   end
 end

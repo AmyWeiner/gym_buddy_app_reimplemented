@@ -14,12 +14,7 @@ class UsersController < ApplicationController
     #@available_gym_users = @gym_users.joins(:availabilities).where("availabilities.id = ?", @availabilities_ids)
   end
 
-  def buddy?(user)
-    # get array of current user's buddies
-    # check to see if this user is in the array
-    # return result
-    buddy = user
-    buddies = current_user.buddies
-    return buddies.include?(buddy)
+  def contact
+    @buddy = User.find(params[:id])
   end
 end
