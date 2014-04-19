@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  require 'Contact'
   before_action :authenticate_user!
 
   def show
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def contact
+    @message = Message.new
     @buddy = User.find(params[:id])
   end
 end

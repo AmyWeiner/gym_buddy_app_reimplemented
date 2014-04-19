@@ -4,19 +4,24 @@
   </div>
   <div class="row">
     <div class="panel callout radius small-6 small-centered columns">
-    <h3>
-  <%= current_user.name%>, 
-  <%= current_user.email%>
-  </h3> 
-
-<h3>
-  <%= @buddy.name%>, 
-  <%= @buddy.email%>
-</h3> 
-    <%= form_tag do %>
-  Form contents
-<% end %>
-  </div>
+      <h3>
+        <%= current_user.name%>, 
+        <%= current_user.email%>
+      </h3> 
+      <h3>
+        <%= @buddy.name%>, 
+        <%= @buddy.email%>
+      </h3> 
+      <%= form_for @message, :url => contact_path do |form| %>
+        <div>
+          <%= form.text_field :subject, placeholder: "Enter Subject" %>
+        </div>
+        <div class>
+          <%= form.text_area :body, placeholder: "Enter Message" %>
+        </div>
+        <br /><%= form.submit "Send", class: "button" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
