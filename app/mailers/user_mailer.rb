@@ -7,4 +7,9 @@ class UserMailer < ActionMailer::Base
     @url = 'http://gym-buddy.herokuapp.com/'
     mail(to: @buddy.email, subject: 'You Have Been Buddied')
   end
+
+  def contact_buddy(message)
+    @message = message
+    mail(to: @message.email, subject: @message.subject)
+  end
 end

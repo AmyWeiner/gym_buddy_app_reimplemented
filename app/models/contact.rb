@@ -1,12 +1,12 @@
-class Message
+class Contact
 
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :subject, :body
+  attr_accessor :name, :email, :subject, :body
 
-  validates :subject, :body, :presence => true
+  validates_presence_of :subject, :body, :presence => true
   
   def initialize(attributes = {})
     attributes.each do |name, value|
