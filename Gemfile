@@ -9,7 +9,7 @@ gem 'devise'
 gem 'pg'
 gem 'rails_12factor', :group => :production
 gem 'yelpster'
-gem 'figaro'
+#gem 'figaro'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
