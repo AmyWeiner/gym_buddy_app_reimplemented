@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
+# Shim to load environment variables from .env into ENV in development
+gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 gem 'devise'
 gem 'pg'
 gem 'rails_12factor', :group => :production
 gem 'yelpster'
-gem 'dotenv'
 gem 'figaro'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
