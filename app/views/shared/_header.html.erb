@@ -13,7 +13,7 @@
         <li><%= link_to "My Profile", user_path(current_user), :method => :get %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
-      <li class="active"><a href="/accounts/sign_up">Sign Up</a></li>
+      <li><a href="/accounts/sign_up">Sign Up</a></li>
       <li><a href="/accounts/sign_in">Sign In</a></li>
       <% end %>
     </ul>
@@ -27,5 +27,9 @@
 </nav>
 
   <div class="header-break">
+    <div class="small-6 small-centered columns">
+       <p class="flash-text"><%= notice %></p>
+       <p class="flash-text"><%= alert %></p>
+    </div>
   </div>
 

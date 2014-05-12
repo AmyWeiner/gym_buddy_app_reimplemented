@@ -6,28 +6,10 @@
      <%=  f.select :day, [['Monday', 'Monday'], ['Tuesday', 'Tuesday'], ['Wednesday', 'Wednesday'], ['Thursday', 'Thursday'], ['Friday', 'Friday'], ['Saturday', 'Saturday'], ['Sunday', 'Sunday']] %>
      <%= f.label :time %>
      <%= f.time_select 'time', {ampm: true} %>
-    <%= f.submit "Add Availability", class: "button" %>
+    <div><br /><%= f.submit "Add Availability", class: "button" %></div>
     <% end %>
   </div>
 </div>
-
-<div class="row">
-  <div class="panel callout radius small-4 small-centered columns signup">
-    <h2>Availability</h2>
-
-    <%= form_for @availability do |f| %>
-
-     <div class="small-4 day"><%= f.label :day %><br />
-      <%=  f.select :day, [['Monday', 'Monday'], ['Tuesday', 'Tuesday'], ['Wednesday', 'Wednesday'], ['Thursday', 'Thursday'], ['Friday', 'Friday'], ['Saturday', 'Saturday'], ['Sunday', 'Sunday']] %></div>
-
-      <div class="small-4 time"><%= f.label :time %><br />
-       <%= f.time_select 'time', {ampm: true} %></div>
-
-      <div> <br /><%= f.submit "Add Availability", class: "button" %></div>
-    <% end %>
-  </div>
-</div>
-
 
 
 

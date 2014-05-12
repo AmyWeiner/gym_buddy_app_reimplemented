@@ -9,12 +9,9 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="body">
     <%= render 'shared/header' %>
-    <div class="flash small-6 small-centered columns">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    </div>
+    
     <div class="body">
       <%= yield %>
     </div>
