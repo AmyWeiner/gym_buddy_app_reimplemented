@@ -20,10 +20,6 @@
   text-align: center;
 }
 
-.notice, .alert {
-  background-color: #cd4e00;
-}
-
 .body {
   background-color: #f2a922;
   height: 780px;
@@ -31,8 +27,6 @@
 }
 
 .graphic {
-  height: 2000%;
-  width: 200%;
   position: relative;
   top: 100px;
 }
