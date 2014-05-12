@@ -1,6 +1,4 @@
 class ContactController < ApplicationController
-  require 'User'
-
   def new
     @message = Contact.new
   end
