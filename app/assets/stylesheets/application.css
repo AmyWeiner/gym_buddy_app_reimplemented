@@ -31,7 +31,8 @@
 }
 
 .graphic {
-  margin: 0 auto;
+  height: 2000%;
+  width: 200%;
   position: relative;
   top: 100px;
 }
